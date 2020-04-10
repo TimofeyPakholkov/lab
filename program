@@ -1,0 +1,25 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+	int i;
+	std::string S;
+	std::string S0;
+	std::string SF;
+	std::ifstream file("f.txt");
+	std::getline(file,S0);
+	cout << "Vvedite stroky S" << '\n';
+	std::getline(std::cin,S);
+	SF=S;
+	SF+="C";
+	for (i=0;i<S.length();i++) {
+		S.replace(S.find("C"),1,"zam_simvol");
+	}
+	for (i=0;i<S.length();i++) {
+                S.replace(S.find("zam_simvol"),9,SF);
+        }
+	std::cout << S << '\n' << S0 << '\n';
+	file.close();
+}
